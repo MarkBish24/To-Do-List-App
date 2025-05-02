@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Metrofutura";
+  src: url("../assets/fonts/Metrofutura.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Corp Light";
+  src: url("../assets/fonts/Corp-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Corp Light Oblique";
+  src: url("../assets/fonts/Corp-LightOblique.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 60px;
+  font-family: "Metrofutura";
+  margin-top: 20px;
+  margin-bottom: 0px;
+
+  color: rgb(38, 38, 38);
+}
+
+.subheader-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(248, 248, 248);
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: 30px;
+
+  transition: background-color 0.3s ease;
+}
+
+.subheader-container:hover {
+  background-color: #fcf2e5;
+}
+
+.subheader {
+  font-size: 8px;
+  font-family: "Corp Light Oblique";
+  color: rgb(153, 153, 153);
+  margin-right: 10px;
+}
+
+.add-note-button {
+  background-color: rgb(201, 201, 201);
+  border: none;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+}

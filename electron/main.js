@@ -11,6 +11,7 @@ function createMainWindow() {
     webPreferences: {
       nodeIntegration: true, // Optional: if you want to use Node.js features directly in the renderer
     },
+    icon: path.join(__dirname, "../renderer/assets/photos/notebook.png"),
   });
 
   const startUrl = process.env.VITE_DEV_SERVER_URL || "http://localhost:5173";
