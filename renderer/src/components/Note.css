@@ -1,0 +1,10 @@
+li {
+  margin: 10px 10px;
+  background-color: white;
+  padding: 5px;
+  margin: 10px;
+
+  list-style-type: none;
+
+  border-radius: 5px;
+}

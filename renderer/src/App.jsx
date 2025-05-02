@@ -8,10 +8,13 @@ export default function App() {
     <>
       <div className="app-container">
         <Header />
+        <ul className="note-list">
+          <Note />
+          <Note />
+          <Note />
+          <Note />
+        </ul>
       </div>
-      <ul className="note-list">
-        <Note />
-      </ul>
     </>
   );
 }

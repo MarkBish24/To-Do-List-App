@@ -23,14 +23,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
 .title {
   font-size: 60px;
   font-family: "Metrofutura";
   margin-top: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 
   color: rgb(38, 38, 38);
 }
@@ -43,7 +42,8 @@
   padding: 6px 12px;
   border-radius: 10px;
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 13%;
+  margin-bottom: 20px;
 
   transition: background-color 0.3s ease;
 }
