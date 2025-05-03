@@ -9,7 +9,7 @@ function createMainWindow() {
     width: 1000,
     height: 600,
     webPreferences: {
-      nodeIntegration: true, // Optional: if you want to use Node.js features directly in the renderer
+      nodeIntegration: true,
     },
     icon: path.join(__dirname, "../renderer/assets/photos/notebook.png"),
   });

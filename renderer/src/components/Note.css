@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Corp Light";
+  src: url("../assets/fonts/Corp-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 li {
   margin: 10px 10px;
   background-color: white;
@@ -7,4 +14,36 @@ li {
   list-style-type: none;
 
   border-radius: 5px;
+}
+
+.title {
+  font-size: 40px;
+}
+
+.note-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.note-button-container {
+  display: flex;
+  flex-direction: row;
+}
+.note-button {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: None;
+  cursor: pointer;
+}
+
+.description {
+  padding: 0 2rem;
+  font-family: "Corp Light";
 }
