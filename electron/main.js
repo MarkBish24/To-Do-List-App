@@ -1,7 +1,6 @@
-const { app, BrowserWindow } = require("electron");
-const url = require("url");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { start } = require("repl");
+const { MongoClient } = require("mongodb");
 
 function createMainWindow() {
   const mainWindow = new BrowserWindow({

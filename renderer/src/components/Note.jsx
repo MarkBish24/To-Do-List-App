@@ -2,11 +2,11 @@ import "./Note.css";
 import notebookImg from "../../assets/photos/trashcan.png";
 import editImg from "../../assets/photos/edit.svg";
 
-export default function Note() {
+export default function Note({ title, description }) {
   return (
     <li>
       <div className="note-header">
-        <p className="title">Title</p>
+        <p className="title">{title}</p>
         <div className="note-button-container">
           <button class="note-button">
             <img src={editImg} alt="Icon" height="20" width="20" />
@@ -16,9 +16,7 @@ export default function Note() {
           </button>
         </div>
       </div>
-      <p className="description">
-        This is an Example of a Description that you can Add
-      </p>
+      <p className="description">{description}</p>
     </li>
   );
 }
