@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Grocery List",
+    "description": "Buy eggs, milk, bread, and coffee from the store."
+  },
+  {
+    "id": 2,
+    "title": "Meeting Notes",
+    "description": "Discuss project timeline, delegate tasks, and review client feedback."
+  },
+  {
+    "id": 3,
+    "title": "Workout Plan",
+    "description": "Monday - Push, Tuesday - Legs, Wednesday - Pull. Focus on progressive overload."
+  },
+  {
+    "id": 4,
+    "title": "Books to Read",
+    "description": "Start with 'Atomic Habits', then move on to 'Deep Work' and 'The Alchemist'."
+  },
+  {
+    "id": 5,
+    "title": "App Ideas",
+    "description": "Create a habit tracker, a personal finance dashboard, and a daily quote app."
+  }
+]
