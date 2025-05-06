@@ -43,3 +43,16 @@ ipcMain.handle("write-data", async (event, newData) => {
     return { status: "error", message: "Failed to write data" };
   }
 });
+
+ipcMain.handle("add-data", async (event, newData) => {
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const currentData = JSON.parse(raw);
+
+    currentData.push(newData);
+
+    fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2), "utf-8");
+
+    return { status: "success" };
+  } catch (error) {}
+});

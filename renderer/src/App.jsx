@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 
 import Header from "./components/Header.jsx";
 import Note from "./components/Note.jsx";
+import AddNoteBox from "./components/AddNoteBox.jsx";
 import "./App.css";
 
 export default function App() {
   const [data, setData] = useState([]);
+  const [isAdding, setIsAdding] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +39,25 @@ export default function App() {
     }
   };
 
+  const handleAddData = async (title, description) => {
+    try {
+      const newNote = {
+        id: data.length + 1,
+        title: title,
+        description: description,
+      };
+
+      await window.electronAPI.addData(newNote);
+      setData([...data, newNote]);
+    } catch (error) {
+      console.error("Error adding data:", error);
+    }
+  };
+
   return (
     <>
       <div className="app-container">
-        <Header />
+        <Header setIsAdding={setIsAdding} />
         <ul className="note-list">
           {data.map((note) => (
             <Note
@@ -51,6 +68,9 @@ export default function App() {
           ))}
         </ul>
       </div>
+      {isAdding ? (
+        <AddNoteBox setIsAdding={setIsAdding} handleAddData={handleAddData} />
+      ) : null}
     </>
   );
 }
