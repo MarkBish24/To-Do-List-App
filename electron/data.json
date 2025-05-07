@@ -28,5 +28,15 @@
     "id": 6,
     "title": "Clean Room",
     "description": "Dust the floors, clear the closet and desk, and wash bed sheets."
+  },
+  {
+    "id": 7,
+    "title": "Eat Cheezits",
+    "description": "I have a whole box of cheezits I have to eat in 20 minutes"
+  },
+  {
+    "id": 8,
+    "title": "Grocery Store",
+    "description": "Buying fruits and vegetables"
   }
 ]

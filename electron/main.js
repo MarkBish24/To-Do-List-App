@@ -54,5 +54,28 @@ ipcMain.handle("add-data", async (event, newData) => {
     fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2), "utf-8");
 
     return { status: "success" };
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error writing to data.json:", error);
+    return { status: "error", message: "Failed to write data" };
+  }
+});
+
+ipcMain.handle("edit-data", async (event, newData) => {
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const currentData = JSON.parse(raw);
+
+    const index = currentData.findIndex((note) => note.id === newData.id);
+
+    if (index !== -1) {
+      currentData[index] = newData; // Update the note
+      fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2), "utf-8");
+      return { status: "success", message: "Data updated successfully" };
+    } else {
+      return { status: "error", message: "Note not found" };
+    }
+  } catch (error) {
+    console.error("Error writing to data.json:", error);
+    return { status: "error", message: "Failed to write data" };
+  }
 });

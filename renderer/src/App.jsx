@@ -8,6 +8,8 @@ import "./App.css";
 export default function App() {
   const [data, setData] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempId, setTempId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +41,7 @@ export default function App() {
     }
   };
 
-  const handleAddData = async (title, description) => {
+  const handleAddData = async (id, title, description) => {
     try {
       const newNote = {
         id: data.length + 1,
@@ -54,6 +56,24 @@ export default function App() {
     }
   };
 
+  const handleEditData = async (id, title, description) => {
+    try {
+      const updatedData = data.map((note) =>
+        note.id === id ? { ...note, title, description } : note
+      );
+
+      await window.electronAPI.editData({
+        id,
+        title,
+        description,
+      });
+
+      setData(updatedData);
+    } catch (error) {
+      console.error("Error editing data:", error);
+    }
+  };
+
   return (
     <>
       <div className="app-container">
@@ -62,14 +82,32 @@ export default function App() {
           {data.map((note) => (
             <Note
               key={note.id}
+              id={note.id}
               title={note.title}
               description={note.description}
+              setIsEditing={setIsEditing}
+              setTempId={setTempId}
             />
           ))}
         </ul>
       </div>
       {isAdding ? (
-        <AddNoteBox setIsAdding={setIsAdding} handleAddData={handleAddData} />
+        <AddNoteBox
+          Action="Add"
+          id={tempId}
+          setTempId={setTempId}
+          changeFunction={setIsAdding}
+          handleData={handleAddData}
+        />
+      ) : null}
+      {isEditing ? (
+        <AddNoteBox
+          Action="Edit"
+          id={tempId}
+          setTempId={setTempId}
+          changeFunction={setIsEditing}
+          handleData={handleEditData}
+        />
       ) : null}
     </>
   );
