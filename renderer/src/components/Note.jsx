@@ -8,6 +8,7 @@ export default function Note({
   description,
   setIsEditing,
   setTempId,
+  deleteData,
 }) {
   return (
     <li>
@@ -23,7 +24,12 @@ export default function Note({
           >
             <img src={editImg} alt="Icon" height="20" width="20" />
           </button>
-          <button class="note-button">
+          <button
+            class="note-button"
+            onClick={() => {
+              deleteData(id);
+            }}
+          >
             <img src={notebookImg} alt="Icon" height="20" width="20" />
           </button>
         </div>

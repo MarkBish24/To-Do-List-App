@@ -74,6 +74,16 @@ export default function App() {
     }
   };
 
+  const handleDeleteData = async (id) => {
+    try {
+      const updatedData = data.filter((note) => note.id !== id);
+      await window.electronAPI.deleteData(id);
+      setData(updatedData);
+    } catch (error) {
+      console.error("Error editing data:", error);
+    }
+  };
+
   return (
     <>
       <div className="app-container">
@@ -87,6 +97,7 @@ export default function App() {
               description={note.description}
               setIsEditing={setIsEditing}
               setTempId={setTempId}
+              deleteData={handleDeleteData}
             />
           ))}
         </ul>

@@ -79,3 +79,19 @@ ipcMain.handle("edit-data", async (event, newData) => {
     return { status: "error", message: "Failed to write data" };
   }
 });
+
+ipcMain.handle("delete-data", async (event, idToDelete) => {
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const currentData = JSON.parse(raw);
+
+    const updatedData = currentData.filter((note) => note.id !== idToDelete);
+
+    fs.writeFileSync(filePath, JSON.stringify(updatedData, null, 2), "utf-8");
+
+    return { status: "success", data: updatedData };
+  } catch (error) {
+    console.error("Error writing to data.json:", error);
+    return { status: "error", message: "Failed to write data" };
+  }
+});
